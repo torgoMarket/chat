@@ -1,0 +1,42 @@
+.message{
+    min-width: 40%;
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-left: 10px;
+    background: teal;
+    color: #fff;
+    padding: 10px;
+}
+
+.ownMessage{
+    align-self: flex-end;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #918EF4 0%, #F8ACFF 100%);
+}
+
+.incomingMessage{
+    border-radius: 20px;
+    background: linear-gradient(135deg, #F9B16E 0%, #F68080 100%);
+}
+
+.author{
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.text{
+    max-width: 95%;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 18px;
+}
+
+.time{
+    align-self: flex-end;
+    font-size: 14px;
+    color: #000000;
+    margin-top: 10px;
+}

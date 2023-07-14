@@ -1,0 +1,19 @@
+.chatItem{
+    height: 100px;
+    width: 100%;
+    border: 1px solid #010101;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+}
+
+.chatItem:hover{
+    background: rgba(255, 0, 0, 0.20);
+}
+
+h4{
+    font-size: 20px;
+    color: #fff;
+}

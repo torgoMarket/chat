@@ -1,0 +1,13 @@
+.chatList{
+    max-width: 300px;
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.01);
+    display: flex;
+    flex-direction: column;
+}
+
+.listEmpty{
+    text-align: center;
+    margin: 30px;
+}
