@@ -11,10 +11,10 @@ const AddMessage = () => {
     const chatUsers = useSelector(state => state.chats.currentChatUsers)
     const authUser = useSelector(state => state.authUser.authUser) 
 
-    const addMessage = () => {
+    const addNewMessage = () => {
         chats.map(chat => (
-            chat.chatUsers.includes(chatUsers)
-            ? dispatch(addMessage({chatUsers: chatUsers, message: {id: Date.now, sendedBy: authUser.userName, message: newMessage, sendedTime: Date.now()}}))
+            chat.chatUsers.includes(chatUsers[0]) && chat.chatUsers.includes(chatUsers[1])
+            ? dispatch(addMessage({chatUsers: chatUsers, message: {id: Date.now(), sendedBy: authUser.userName, message: newMessage, sendedTime: Date.now()}}))
             : console.log()
         ))
     }
@@ -22,7 +22,7 @@ const AddMessage = () => {
     return (
         <div className={styles.addMessage}>
             <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className={styles.addMessage__input}/>
-            <button className={styles.addMessage__button} onClick={addMessage}><i className="fa-solid fa-caret-right"></i></button>  
+            <button className={styles.addMessage__button} onClick={addNewMessage}><i className="fa-solid fa-caret-right"></i></button>  
         </div> 
     )
 }    

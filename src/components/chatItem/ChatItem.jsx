@@ -9,9 +9,9 @@ const ChatItem = ({userName, type, user}) => {
   const dispatch = useDispatch()
 
   return (
-    type == "add"
+    type === "add"
       ?    
-        <div className={styles.chatItem} onClick={() => dispatch(addChat({chatName: `${user}${authUser.userName}`, messages: []}))}>
+        <div className={styles.chatItem} onClick={() => dispatch(addChat({chatUsers: [user, authUser.userName], messages: []}))}>
           <h4>{userName}</h4>
         </div>
       : 
@@ -20,5 +20,6 @@ const ChatItem = ({userName, type, user}) => {
         </div>
   )
 }
+
 
 export default ChatItem

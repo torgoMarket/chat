@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './NewChat.module.css'
 import { useSelector } from 'react-redux'
 import ChatItem from '../chatItem/ChatItem'
@@ -9,7 +9,17 @@ const NewChat = () => {
   const chats = useSelector(state => state.chats.chats)
   const authUser = useSelector(state => state.authUser.authUser)
   const [isActive, toggleActive] = useState(false)
+  const [userChat, setUserChat] = useState([])
 
+  useEffect(() => {
+    chats.map(chat => (
+      chat.chatUsers.map((chatUser) => (
+        !userChat.includes(String(chatUser))
+          ?setUserChat([...userChat, chatUser])
+          :console.log()
+      ))
+    ))
+  }, [chats, userChat])
 
 
   return (
@@ -18,16 +28,18 @@ const NewChat = () => {
         <div className={`${styles.availableChatList} ${isActive ? styles.active : ''}`}>
           {users.map(userStore => (
             userStore.userName !== authUser.userName
-              ? chats.map(chat => (
-                  !chat.chatUsers.includes(userStore.userName)
-                    ? <ChatItem key={userStore.id} userName={userStore.userName} user={userStore.userName} type="add"></ChatItem>
-                    : console.log()
-                ))
-              : console.log()
+            ? 
+              !userChat.includes(userStore.userName)
+                ? <ChatItem key={userStore.id} userName={userStore.userName} user={userStore.userName} type="add"></ChatItem>
+                : console.log()
+
+            :console.log()
           ))}
         </div>
     </div>
   )
 }
+
+
 
 export default NewChat

@@ -7,18 +7,17 @@ import ChatList from '../components/chatList/ChatList'
 const Chat = () => {
 
   const chats = useSelector(state => state.chats.chats)
-  const chatUsers = useSelector(state => state.chats.currentChatUsers)
+  const currentChatUsers = useSelector(state => state.chats.currentChatUsers)
 
   const [currentChat, setCurrentChat] = useState({})
 
   useEffect(() => {
-    {chats.map(chat => (
-      console.log(chatUsers, chat.chatUsers),
-      chat.chatUsers.includes(chatUsers[0]) && chat.chatUsers.includes(chatUsers[1])
+    chats.map(chat => (
+      chat.chatUsers.includes(currentChatUsers[0]) && chat.chatUsers.includes(currentChatUsers[1])
         ? setCurrentChat(chat)
         : console.log()
-    ))} 
-  }, [chatUsers])
+    ))
+  }, [currentChatUsers, chats]) 
 
   return (
     <div className="chatPage">
