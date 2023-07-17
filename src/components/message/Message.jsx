@@ -8,10 +8,10 @@ const Message = ({message}) => {
     const authUser = useSelector(state => state.authUser.authUser) 
 
     useEffect(() => {
-        message.sendedBy == authUser.userName
+        message.sendedBy === authUser.userName
         ? setIsOwnMessage(true)
         : setIsOwnMessage(false)
-    }, [message.sendedBy])
+    }, [message.sendedBy, authUser.userName])
 
     return (
         <div className={`${styles.message} ${isOwnMessage ? styles.ownMessage : styles.incomingMessage}`}>

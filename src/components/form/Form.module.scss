@@ -1,0 +1,61 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
+.form{
+    @include size(250px, 400px);
+    min-height: 400px;
+    @include flex(column, center, start, no-wrap, 0, 40px);
+    padding: 20px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #5465FF 0%, #1E212B 100%);
+    box-shadow: -10px -10px 15px 0px rgba(247, 86, 124, 0.50);
+
+    h3{
+        font-size: 2.4rem;
+        color: $white;
+        text-shadow: 1px 1px 20px $pink;
+    }
+
+    .input{
+        background: transparent;
+        padding-left: 5px;
+        @include size(100%, 30px);
+        @include font(1.7rem, 400, $white, 2rem, 0.2rem);
+        border: 1px solid transparent;
+        border-left-color: #F7567C;
+        border-bottom-color: #F7567C;
+        transition: all 0.3s;
+
+        &:focus{
+            border-bottom-color: #F7567C;
+            background: #F7567C;
+            padding-left: 15px;
+            padding-bottom: 2px;
+            border-top-right-radius: 30px;
+        }
+    
+        &::placeholder{
+            color: $white;
+        }
+    }
+
+    .button{
+        @include size(100%, 40px);
+        @include font(1.7rem, 400, $white, 2rem, 0.3rem);
+        background: rgba(247, 86, 124, 0.7);
+        cursor: pointer;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition: all 0.3s;
+    
+        &:hover{
+            background: transparent;
+        }
+    }
+
+}     
+
+
+
+
+

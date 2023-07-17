@@ -1,0 +1,27 @@
+@mixin flex($direction, $jc, $ai, $wrap, $gap, $rowGap){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-wrap: $wrap;
+    gap: $gap;
+    row-gap: $rowGap;
+}
+
+@mixin size($width, $height){
+    width: $width;
+    height: $height;
+}
+
+@mixin border($width, $type, $color, $radius){
+    border: $width $type $color;
+    border-radius: $radius;
+}
+
+@mixin font($fz, $fw, $color, $lh, $ls){
+    font-size: $fz;
+    font-weight: $fw;
+    color: $color;
+    line-height: $lh;
+    letter-spacing: $ls;
+}

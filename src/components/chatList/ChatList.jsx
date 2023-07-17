@@ -13,10 +13,10 @@ const ChatList = () => {
   return (
     <div className={styles.chatList}>
       <NewChat></NewChat>
-      {users.length == 1
+      {users.length === 1
         ? <h4 className={styles.listEmpty}>Chat List is empty</h4>
         : users.map(user => (
-            user.userName != authUser.userName
+            user.userName !== authUser.userName
               ? chats.map(chat => (
                 chat.chatUsers.includes(authUser.userName) && chat.chatUsers.includes(user.userName)
                 ? <ChatItem key={user.id} userName={user.userName}></ChatItem>

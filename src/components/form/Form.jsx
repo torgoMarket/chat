@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../../store/usersSlice";
-import styles from "./Form.module.css"
+import styles from "./Form.module.scss"
 import { useNavigate } from "react-router-dom";
 import { setAuthUser } from "../../store/authUserSlice";
 
@@ -21,12 +21,12 @@ const Form = () => {
     };
 
     const validate = (status) => {
-      if(status == "pass"){
+      if(status === "pass"){
         dispatch(setAuthUser(user))
         setUserName("");
         setPassword("");
         router("/chat")
-      }else if(status == "incorrectPassword"){
+      }else if(status === "incorrectPassword"){
         alert("incorrect Password")
         setPassword("");
       }else{
@@ -37,8 +37,8 @@ const Form = () => {
 
     users.map((userStore) => (
       user.userName !== "" && user.password !== ""
-        ? userStore.userName == user.userName 
-            ? userStore.password == user.password 
+        ? userStore.userName === user.userName 
+            ? userStore.password === user.password 
               ? validate("pass")
               : validate("incorrectPassword")   
             : 
@@ -51,6 +51,7 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
+      <h3>Sign Up/ Login</h3>
       <input
         placeholder="userName"
         className={styles.input}
@@ -65,7 +66,7 @@ const Form = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button className={styles.button} type="submit">Login</button>
+      <button className={styles.button} type="submit">login</button>
     </form>
   );
 };
