@@ -8,7 +8,6 @@ const Chat = () => {
 
   const chats = useSelector(state => state.chats.chats)
   const currentChatUsers = useSelector(state => state.chats.currentChatUsers)
-
   const [currentChat, setCurrentChat] = useState({})
 
   useEffect(() => {
@@ -18,6 +17,8 @@ const Chat = () => {
         : console.log()
     ))
   }, [currentChatUsers, chats]) 
+
+
 
   return (
     <div className="chatPage">

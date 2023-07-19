@@ -1,0 +1,47 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
+
+.newChat{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.button{
+    width: 120px;
+    height: 40px;
+    outline: none;
+    background: $pink;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+    i{
+        font-size: 15px;
+        margin-left: 5px;
+    }
+}
+
+.availableChatList{
+    position: absolute;
+    visibility: hidden;
+    width: 100%;
+    height: calc(100vh - 20px - 70px);
+    top: 90px;
+    transform: translateX(-300px);
+    transition: transform 0.5s;
+    background: rgba($color: #000000, $alpha: 0.2);
+}
+
+.active{
+    transform: translateX(0);
+    visibility: visible;
+}
+

@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import styles from './AddMessage.module.css'
+import styles from './AddMessage.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { addMessage } from '../../store/chatSlice'
 
 const AddMessage = () => {
 
+    const date = new Date()
     const dispatch = useDispatch()
     const [newMessage, setNewMessage] = useState('')
     const chats = useSelector(state => state.chats.chats)
@@ -14,15 +15,15 @@ const AddMessage = () => {
     const addNewMessage = () => {
         chats.map(chat => (
             chat.chatUsers.includes(chatUsers[0]) && chat.chatUsers.includes(chatUsers[1])
-            ? dispatch(addMessage({chatUsers: chatUsers, message: {id: Date.now(), sendedBy: authUser.userName, message: newMessage, sendedTime: Date.now()}}))
+            ? dispatch(addMessage({chatUsers: chatUsers, message: {id: Date.now(), sendedBy: authUser.userName, message: newMessage, sendedTime: `${date.getHours()}:${date.getMinutes()}`}}))
             : console.log()
         ))
     }
 
     return (
         <div className={styles.addMessage}>
-            <input type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className={styles.addMessage__input}/>
-            <button className={styles.addMessage__button} onClick={addNewMessage}><i className="fa-solid fa-caret-right"></i></button>  
+            <textarea type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className={styles.input}/>
+            <button className={styles.button} onClick={addNewMessage}><i className="fa-solid fa-paper-plane"></i></button>  
         </div> 
     )
 }    

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styles from './NewChat.module.css'
+import styles from './NewChat.module.scss'
 import { useSelector } from 'react-redux'
 import ChatItem from '../chatItem/ChatItem'
 
@@ -24,7 +24,7 @@ const NewChat = () => {
 
   return (
     <div className={styles.newChat}>
-        <button className={styles.button} onClick={() => toggleActive(!isActive)}>{isActive ? "Hide" : "Add Chat"}</button>
+        <button className={styles.button} onClick={() => toggleActive(!isActive)}>{isActive ? "Hide " : "Add Chat "} </button>
         <div className={`${styles.availableChatList} ${isActive ? styles.active : ''}`}>
           {users.map(userStore => (
             userStore.userName !== authUser.userName

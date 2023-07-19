@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './ChatItem.module.css'
+import styles from './ChatItem.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import { addChat, setChatUsers } from '../../store/chatSlice'
 

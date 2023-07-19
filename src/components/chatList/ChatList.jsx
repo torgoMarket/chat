@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './ChatList.module.css'
+import styles from './ChatList.module.scss'
 import ChatItem from '../chatItem/ChatItem'
 import { useSelector } from 'react-redux'
 import NewChat from '../newChat/NewChat'
@@ -20,7 +20,7 @@ const ChatList = () => {
               ? chats.map(chat => (
                 chat.chatUsers.includes(authUser.userName) && chat.chatUsers.includes(user.userName)
                 ? <ChatItem key={user.id} userName={user.userName}></ChatItem>
-                : console.log()
+                : console.log() 
               ))
               : console.log()
           ))

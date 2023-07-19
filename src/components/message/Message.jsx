@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import styles from './Messages.module.css'
-import { useSelector } from 'react-redux'
+import styles from './Messages.module.scss'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteMessage } from '../../store/chatSlice'
 
 const Message = ({message}) => {
 
+    const dispatch = useDispatch()
     const [isOwnMessage, setIsOwnMessage] = useState(false)
     const authUser = useSelector(state => state.authUser.authUser) 
+    const currentChatUsers = useSelector(state => state.chats.currentChatUsers)
+
 
     useEffect(() => {
         message.sendedBy === authUser.userName
@@ -15,6 +19,10 @@ const Message = ({message}) => {
 
     return (
         <div className={`${styles.message} ${isOwnMessage ? styles.ownMessage : styles.incomingMessage}`}>
+            {isOwnMessage
+                ? <i className="fa-solid fa-trash" onClick={() => dispatch(deleteMessage({currentChatUsers: currentChatUsers, message: message}))}></i>
+                : console.log()
+            }
             <h4 className={styles.author}>{message.sendedBy}</h4>
             <p className={styles.text}>{message.message}</p>
             <span className={styles.time}>{message.sendedTime}</span> 

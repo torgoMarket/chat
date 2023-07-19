@@ -1,0 +1,55 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
+.message{
+    position: relative;
+    min-width: 40%;
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    color: $white;
+    padding: 10px;
+    border-radius: 20px;
+
+    i{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.6rem;
+        cursor: pointer;
+        color: $purple;
+    }
+
+    .author{
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: $black;
+    }
+    
+    .text{
+        max-width: 95%;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 1.8rem;
+    }
+    
+    .time{
+        align-self: flex-end;
+        font-size: 1.4rem;
+        color: $black;
+        margin-top: 10px;
+    }
+}
+
+
+
+.ownMessage{
+    align-self: flex-end;
+    background: linear-gradient(135deg, #918EF4 0%, #F8ACFF 100%);
+}
+
+.incomingMessage{
+    background: linear-gradient(135deg, #F9B16E 0%, #F68080 100%);
+}
+

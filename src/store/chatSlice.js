@@ -6,8 +6,7 @@ const initialState = {
       {chatUsers: ["Asad", "Amir"], messages:[
         {id: 0, sendedBy: "Amir", message: "HEllo", sendedTime: Date.now()},
         {id: 1, sendedBy: "Asad", message: "Good", sendedTime: Date.now()}
-      ]},
-
+      ]},  
   ], 
 };
 
@@ -26,12 +25,19 @@ const chatSlice = createSlice({
         : console.log()
       ))
     },
+    deleteMessage(state, action){
+      state.chats.map(chat => (
+        chat.chatUsers.includes(action.payload.currentChatUsers[0]) && chat.chatUsers.includes(action.payload.currentChatUsers[1])
+          ? chat.messages = chat.messages.filter(message => message.id !== action.payload.message.id)
+          : console.log(chat)
+      ))
+    },
     setChatUsers(state, action) {
       state.currentChatUsers = action.payload
     }
   },
 });
 
-export const { addMessage, addChat, setChatUsers } = chatSlice.actions;
+export const { addMessage, addChat, deleteMessage, setChatUsers} = chatSlice.actions;
 
 export default chatSlice.reducer;

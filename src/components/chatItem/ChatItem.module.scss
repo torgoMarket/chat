@@ -1,0 +1,27 @@
+@import "/src/styles/variables.scss";
+@import "/src/styles/mixins.scss";
+
+.chatItem{
+    @include size(100%, 100px);
+    border: 1px solid $purple;
+    border-right-width: 0;
+    border-left-width: 0;
+    @include flex(row, center, center, no-wrap, 0, 0);
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+    background: $black;
+
+    h4{
+        font-size: 2rem;
+        color: #fff;
+    }
+}
+
+.chatItem:hover{
+    background: $pink;
+}
+
+.chatItem:hover h4{
+    color: $white;
+}
+
