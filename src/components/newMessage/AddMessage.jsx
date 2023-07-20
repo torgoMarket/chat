@@ -18,10 +18,13 @@ const AddMessage = () => {
             ? dispatch(addMessage({chatUsers: chatUsers, message: {id: Date.now(), sendedBy: authUser.userName, message: newMessage, sendedTime: `${date.getHours()}:${date.getMinutes()}`}}))
             : console.log()
         ))
+        setNewMessage("")
     }
 
     return (
-        <div className={styles.addMessage}>
+        <div className={styles.addMessage} onKeyDown={(e) => {if (e.code === "Enter"){
+            addNewMessage()
+        }}}>
             <textarea type="text" value={newMessage} onChange={(e) => setNewMessage(e.target.value)} className={styles.input}/>
             <button className={styles.button} onClick={addNewMessage}><i className="fa-solid fa-paper-plane"></i></button>  
         </div> 

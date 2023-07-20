@@ -17,6 +17,9 @@ const chatSlice = createSlice({
     addChat(state, action) {
       state.chats.push(action.payload); 
     },
+    deleteChat(state, action) {
+      state.chats = state.chats.filter(chat => !chat.chatUsers.includes(action.payload[0]) && !chat.chatUsers.includes(action.payload[1]))
+    },
     addMessage(state, action){
       const actionChatUsers = action.payload.chatUsers
       state.chats.map(chat => (
@@ -38,6 +41,6 @@ const chatSlice = createSlice({
   },
 });
 
-export const { addMessage, addChat, deleteMessage, setChatUsers} = chatSlice.actions;
+export const { addMessage, addChat, deleteChat, deleteMessage, setChatUsers} = chatSlice.actions;
 
 export default chatSlice.reducer;

@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './ChatItem.module.scss'
 import { useDispatch, useSelector } from 'react-redux'
-import { addChat, setChatUsers } from '../../store/chatSlice'
+import { addChat, deleteChat, setChatUsers } from '../../store/chatSlice'
 
 const ChatItem = ({userName, type, user}) => {
 
@@ -16,7 +16,8 @@ const ChatItem = ({userName, type, user}) => {
         </div>
       : 
         <div className={styles.chatItem} onClick={() => dispatch(setChatUsers([userName, authUser.userName]))}>
-          <h4>{userName}</h4>
+          <i className="fa-solid fa-trash" onClick={() => dispatch(deleteChat([authUser.userName, userName]))}></i>
+          <h4>{userName}</h4> 
         </div>
   )
 }
