@@ -24,7 +24,7 @@ const NewChat = () => {
 
   return (
     <div className={styles.newChat}>
-        <button className={styles.button} onClick={() => toggleActive(!isActive)}>{isActive ? "Hide " : "Add Chat "} </button>
+        <button className={`${styles.button} ${isActive ? styles.hide : ""}`} onClick={() => toggleActive(!isActive)}>{isActive ? "Hide " : "Add Chat "} <i className="fa-solid fa-plus"></i> </button>
         <div className={`${styles.availableChatList} ${isActive ? styles.active : ''}`}>
           {users.map(userStore => (
             userStore.userName !== authUser.userName

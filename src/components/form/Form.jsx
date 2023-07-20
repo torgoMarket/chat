@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useId, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../../store/usersSlice";
 import styles from "./Form.module.scss"
@@ -11,11 +11,12 @@ const Form = () => {
   const users = useSelector(state => state.users.users)
   const [userName, setUserName] = useState("Amir");
   const [password, setPassword] = useState("hello");
+  const userId = useId()
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
-      id: Math.random().toString(36).substr(2, 9),
+      id: userId,
       userName,
       password,
     };

@@ -4,12 +4,12 @@
 
 .newChat{
     position: relative;
-    @include size(100%, 100%);
     @include flex(column, start, center, no-wrap, 0, 0);
     padding-top: 30px;
 }
 
 .button{
+    position: relative;
     @include size(120px, 40px);
     background: $pink;
     color: #fff;
@@ -18,10 +18,38 @@
     border-radius: 10px;
     margin-bottom: 20px;
     cursor: pointer;
+    transition: all 0.3s;
 
     i{
-        font-size: 15rem;
-        margin-left: 5px;
+        display: block;
+        visibility: hidden;
+        content: "+";
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        font-size: 1.4rem;
+        transform: translateX(-20px);
+        transition: all 0.3s;
+    }
+
+    &:hover > i{
+        transform: translateX(0px);
+        visibility: visible;
+    }
+
+    &:hover{
+        padding-right: 15px;
+    }
+
+}
+
+.hide{
+    i{
+        display: none;
+    }
+
+    &:hover{
+        padding: 0;
     }
 }
 

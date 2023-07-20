@@ -1,7 +1,6 @@
 import React from 'react'
 import Form from '../components/form/Form'
 import TypeText from "../components/UI/TypeText"
-import mainBackgroundImage from "../images/mainBackground.png"
 
 const Main = () => {
   return (

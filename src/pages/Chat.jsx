@@ -3,12 +3,21 @@ import { useSelector } from 'react-redux'
 import Message from '../components/message/Message'
 import AddMessage from '../components/newMessage/AddMessage'
 import ChatList from '../components/chatList/ChatList'
+import { useNavigate } from 'react-router-dom'
 
 const Chat = () => {
 
+  const router = useNavigate()
   const chats = useSelector(state => state.chats.chats)
   const currentChatUsers = useSelector(state => state.chats.currentChatUsers)
   const [currentChat, setCurrentChat] = useState({})
+  const authUser = useSelector(state => state.authUser.authUser)
+
+  useEffect(() => {
+    if(JSON.stringify(authUser) === '{}'){
+      router("/")
+    }
+  }, [Chat]) 
 
   useEffect(() => {
     chats.map(chat => (
@@ -28,7 +37,7 @@ const Chat = () => {
           {Array.isArray(currentChat.messages)
           ?
             currentChat.messages.map(message => (
-              <Message message={message}></Message>
+              <Message message={message} key={message.id}></Message>
             ))
           : console.log()
           }
