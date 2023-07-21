@@ -14,13 +14,12 @@
         @include size(100%, 70px);
         min-width: 100%;
         @include font(1.6rem, 400, $white, 2rem, 0.2rem);
-        background: rgba(255, 255, 255, 0.05);
+        background: $lightGrey;
         border: 1px solid transparent;
-        border-left-color: $pink;
+        margin-left: 6px;
         padding: 15px 10px 60px 10px;
-        padding-left: 15px;
-        padding-right: 60px;
         overflow: hidden;
+        color: $black;
     }
     
     .button{
@@ -32,7 +31,7 @@
         cursor: pointer;
     
         i{
-            color: $purple;
+            color: $lightOrange;
             font-size: 20px;
         }
     }
@@ -46,7 +45,7 @@
         cursor: pointer;
     
         i{
-            color: $purple;
+            color: $lightOrange;
             font-size: 20px;
         }
     }
