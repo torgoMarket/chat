@@ -19,7 +19,7 @@ const NewChat = () => {
           :console.log()
       ))
     ))
-  }, [chats, userChat])
+  }, [chats, userChat, NewChat])
 
 
   return (

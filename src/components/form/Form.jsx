@@ -4,7 +4,6 @@ import { addUser } from "../../store/usersSlice";
 import styles from "./Form.module.scss"
 import { useNavigate } from "react-router-dom";
 import { setAuthUser } from "../../store/authUserSlice";
-import formImage from "../../images/formImage.jpg"
 
 const Form = () => {
   const router = useNavigate()
@@ -52,29 +51,24 @@ const Form = () => {
   };
 
   return (
-    <div className={styles.form}>
-      <div className={styles.image}>
-        <img src={formImage} alt="" />
-      </div>
-      <form onSubmit={handleSubmit}>
-        <h3>Sign Up/ Login</h3>
-        <input
-          placeholder="userName"
-          className={styles.input}
-          type="text"
-          value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        />
-        <input
-          placeholder="password"
-          className={styles.input}
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button className={styles.button} type="submit">login</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      <h3>Sign Up/ Login</h3>
+      <input
+        placeholder="userName"
+        className={styles.input}
+        type="text"
+        value={userName}
+        onChange={(e) => setUserName(e.target.value)}
+      />
+      <input
+        placeholder="password"
+        className={styles.input}
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button className={styles.button} type="submit">login</button>
+    </form>
   );
 };
 

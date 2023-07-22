@@ -18,7 +18,7 @@ const chatSlice = createSlice({
       state.chats.push(action.payload); 
     },
     deleteChat(state, action) {
-      state.chats = state.chats.filter(chat => !chat.chatUsers.includes(action.payload[0]) || !chat.chatUsers.includes(action.payload[1])) 
+      state.chats = state.chats.filter(chat => !chat.chatUsers.includes(action.payload[0]) && !chat.chatUsers.includes(action.payload[1]))
     },
     addMessage(state, action){
       const actionChatUsers = action.payload.chatUsers

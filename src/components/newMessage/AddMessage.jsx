@@ -33,7 +33,7 @@ const AddMessage = () => {
             <button className={styles.smile} onClick={() => {isEmojiPickerVisible ? setEmojiPickerVisible(false) : setEmojiPickerVisible(true)}}><i className="fa-regular fa-face-smile"></i></button> 
 
             <div className={`${styles.emojis} ${isEmojiPickerVisible ? styles.active : ''}`}>
-                <EmojiPicker onEmojiClick={(emoji) => setNewMessage(newMessage + emoji.emoji)} width="100%" height="100%" theme="dark" /> 
+                <EmojiPicker onEmojiClick={(emoji) => setNewMessage(newMessage + emoji.emoji)} width="100%" height="100%" theme="light" /> 
             </div>
         </div> 
     )
