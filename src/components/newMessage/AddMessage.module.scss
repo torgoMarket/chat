@@ -4,35 +4,35 @@
 .addMessage{
     position: fixed;
     bottom: 20px;
-    max-width: 890px;
+    max-width: 900px;
     width: 100%;
     @include flex(row, space-between, center, wrap, 0, 0);
     align-self: flex-end;
-    padding: 20px 0;
+    padding-left: 2px;
 
     .input{
         @include size(100%, 70px);
         min-width: 100%;
         @include font(1.6rem, 400, $white, 2rem, 0.2rem);
-        background: rgba(255, 255, 255, 0.05);
+        background: $lightGrey;
         border: 1px solid transparent;
-        border-left-color: $pink;
         padding: 15px 10px 60px 10px;
-        padding-left: 15px;
-        padding-right: 60px;
         overflow: hidden;
+        color: $white;
+        border: 0 solid $red;
+        border-left-width: 2px;
+
     }
     
     .button{
         position: absolute;
         right: 10px;
-        top: 35px;
         @include size(35px, 35px);
         background: transparent;
         cursor: pointer;
     
         i{
-            color: $purple;
+            color: $red;
             font-size: 20px;
         }
     }
@@ -40,13 +40,12 @@
     .smile{
         position: absolute;
         right: 50px;
-        top: 35px;
         @include size(35px, 35px);
         background: transparent;
         cursor: pointer;
     
         i{
-            color: $purple;
+            color: $red;
             font-size: 20px;
         }
     }

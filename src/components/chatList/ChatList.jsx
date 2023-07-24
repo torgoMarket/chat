@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './ChatList.module.scss'
-import ChatItem from '../chatItem/ChatItem'
+import ChatItem from '../chatItem/ChatItem.jsx'
 import { useSelector } from 'react-redux'
 import NewChat from '../newChat/NewChat'
 
@@ -9,7 +9,7 @@ const ChatList = () => {
   const users = useSelector(state => state.users.users) 
   const authUser = useSelector(state => state.authUser.authUser) 
   const chats = useSelector(state => state.chats.chats)
-
+  
   return (
     <div className={styles.chatList}>
       <NewChat></NewChat>

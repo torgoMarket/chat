@@ -4,33 +4,35 @@
 .chatItem{
     position: relative;
     @include size(100%, 100px);
-    border: 1px solid $purple;
+    @include flex(row, center, center, no-wrap, 0, 0);
+    border: 1px solid $blue;
     border-right-width: 0;
     border-left-width: 0;
-    @include flex(row, center, center, no-wrap, 0, 0);
     cursor: pointer;
     transition: all 0.3s ease-out;
-    background: $black;
 
     h4{
         font-size: 2rem;
-        color: #fff;
+        color: $white;
     }
 
     i{
         position: absolute;
         top: 10px;
         right: 10px;
-        font-size: 16px;
-        color: $purple;
+        font-size: 1.6rem;
+        color: $red;
     }
 }
 
 .chatItem:hover{
-    background: $pink;
+    background: $grey;
 }
 
-.chatItem:hover h4{
-    color: $white;
+.chatItemAdd{
+    background: $black;
 }
 
+.currentChat{
+    background: $grey;
+}

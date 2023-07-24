@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './NewChat.module.scss'
 import { useSelector } from 'react-redux'
-import ChatItem from '../chatItem/ChatItem'
+import ChatItem from '../chatItem/ChatItem.jsx'
 
 const NewChat = () => {
 
@@ -11,29 +11,33 @@ const NewChat = () => {
   const [isActive, toggleActive] = useState(false)
   const [userChat, setUserChat] = useState([])
 
+
+  const setAvailableChats = () => {
+    toggleActive(!isActive)
+  }
+
   useEffect(() => {
-    chats.map(chat => (
-      chat.chatUsers.map((chatUser) => (
-        !userChat.includes(String(chatUser))
-          ?setUserChat([...userChat, chatUser])
-          :console.log()
+    toggleActive(false)
+    setUserChat([...users])
+    users.map(user => (
+      chats.map(chat => (
+        chat.chatUsers.includes(authUser.userName) && chat.chatUsers.includes(user.userName)
+        ? setUserChat(current =>
+            current.filter(userC => {
+              return userC.userName !== user.userName
+            }),
+          )
+        : console.log()
       ))
     ))
-  }, [chats, userChat, NewChat])
-
+  }, [chats])
 
   return (
     <div className={styles.newChat}>
-        <button className={`${styles.button} ${isActive ? styles.hide : ""}`} onClick={() => toggleActive(!isActive)}>{isActive ? "Hide " : "Add Chat "} <i className="fa-solid fa-plus"></i> </button>
+        <button className={`${styles.button} ${isActive ? styles.hide : ""}`} onClick={() => setAvailableChats()}>{isActive ? "Hide " : "Add Chat "} <i className="fa-solid fa-plus"></i> </button>
         <div className={`${styles.availableChatList} ${isActive ? styles.active : ''}`}>
-          {users.map(userStore => (
-            userStore.userName !== authUser.userName
-            ? 
-              !userChat.includes(userStore.userName)
-                ? <ChatItem key={userStore.id} userName={userStore.userName} user={userStore.userName} type="add"></ChatItem>
-                : console.log()
-
-            :console.log()
+          {userChat.map(userC => (
+            <ChatItem userName={userC.userName} type="add" user={userC} key={userC.id}></ChatItem>
           ))}
         </div>
     </div>

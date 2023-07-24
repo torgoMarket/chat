@@ -13,12 +13,11 @@ const AddMessage = () => {
     const chats = useSelector(state => state.chats.chats)
     const chatUsers = useSelector(state => state.chats.currentChatUsers)
     const authUser = useSelector(state => state.authUser.authUser) 
-    const messageId = useId()
 
     const addNewMessage = () => {
         chats.map(chat => (
             chat.chatUsers.includes(chatUsers[0]) && chat.chatUsers.includes(chatUsers[1])
-            ? dispatch(addMessage({chatUsers: chatUsers, message: {id: messageId, sendedBy: authUser.userName, message: newMessage, sendedTime: `${date.getHours()}:${date.getMinutes()}`}}))
+            ? dispatch(addMessage({chatUsers: chatUsers, message: {id: Date.now(), sendedBy: authUser.userName, message: newMessage, sendedTime: `${date.getHours()}:${date.getMinutes()}`}}))
             : console.log()
         )) 
         setNewMessage("")
@@ -33,7 +32,7 @@ const AddMessage = () => {
             <button className={styles.smile} onClick={() => {isEmojiPickerVisible ? setEmojiPickerVisible(false) : setEmojiPickerVisible(true)}}><i className="fa-regular fa-face-smile"></i></button> 
 
             <div className={`${styles.emojis} ${isEmojiPickerVisible ? styles.active : ''}`}>
-                <EmojiPicker onEmojiClick={(emoji) => setNewMessage(newMessage + emoji.emoji)} width="100%" height="100%" theme="light" /> 
+                <EmojiPicker onEmojiClick={(emoji) => setNewMessage(newMessage + emoji.emoji)} width="100%" height="100%" theme="dark" /> 
             </div>
         </div> 
     )

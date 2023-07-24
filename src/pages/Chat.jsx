@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import Message from '../components/message/Message'
+import Message from '../components/message/Message.jsx'
 import AddMessage from '../components/newMessage/AddMessage'
 import ChatList from '../components/chatList/ChatList'
 import { useNavigate } from 'react-router-dom'

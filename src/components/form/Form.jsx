@@ -4,6 +4,7 @@ import { addUser } from "../../store/usersSlice";
 import styles from "./Form.module.scss"
 import { useNavigate } from "react-router-dom";
 import { setAuthUser } from "../../store/authUserSlice";
+import formImage from "../../images/formImage.jpg"
 
 const Form = () => {
   const router = useNavigate()
@@ -11,12 +12,11 @@ const Form = () => {
   const users = useSelector(state => state.users.users)
   const [userName, setUserName] = useState("Amir");
   const [password, setPassword] = useState("hello");
-  const userId = useId()
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const user = {
-      id: userId,
+      id: Date.now(),
       userName,
       password,
     };
@@ -43,7 +43,7 @@ const Form = () => {
               ? validate("pass")
               : validate("incorrectPassword")   
             : 
-              validate("new")
+              console.log()
         : alert("fill all fields")
     )) 
 
@@ -51,24 +51,29 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <h3>Sign Up/ Login</h3>
-      <input
-        placeholder="userName"
-        className={styles.input}
-        type="text"
-        value={userName}
-        onChange={(e) => setUserName(e.target.value)}
-      />
-      <input
-        placeholder="password"
-        className={styles.input}
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button className={styles.button} type="submit">login</button>
-    </form>
+    <div className={styles.form}>
+      <div className={styles.image}>
+        <img src={formImage} alt="" />
+      </div>
+      <form onSubmit={handleSubmit}>
+        <h3>Sign Up/ Login</h3>
+        <input
+          placeholder="userName"
+          className={styles.input}
+          type="text"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <input
+          placeholder="password"
+          className={styles.input}
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className={styles.button} type="submit">login</button>
+      </form>
+    </div>
   );
 };
 
